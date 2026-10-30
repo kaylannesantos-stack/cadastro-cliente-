@@ -1,0 +1,22 @@
+
+.lista-clientes {
+    display: grid;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-clientes li {
+    padding: 16px;
+    overflow-wrap: anywhere;
+    border: 1px solid #b7cde3;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #fff, #edf5fd);
+    color: #333;
+    line-height: 1.8;
+}
+
+.lista-clientes strong {
+    color: var(--xp-blue-dark);
+}

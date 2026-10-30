@@ -4,23 +4,24 @@
 
 :root {
     color-scheme: light;
-    font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    background: #808080;
     color: #222;
-    background: #bfbfbf;
-    --xp-blue: #245edb;
-    --xp-blue-dark: #0a246a;
-    --xp-blue-light: #3c8cf4;
-    --xp-gray: #bfbfbf;
-    --xp-panel: #ece9d8;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    --xp-blue: #0a64c5;
+    --xp-blue-dark: #0752a4;
+    --xp-text: #222;
     --xp-border: #7f9db9;
+    --xp-panel: #ece9d8;
 }
 
 body {
     min-height: 100vh;
     margin: 0;
     padding: 32px 20px;
-    background: var(--xp-gray);
-    color: #222;
+    background: #808080;
+    color: var(--xp-text);
 }
 
 .menu-navegação {
@@ -29,12 +30,12 @@ body {
     justify-content: center;
     gap: 6px;
     width: min(100%, 760px);
-    margin: 0 auto 22px;
-    padding: 9px;
-    border: 1px solid #003c74;
+    margin: 0 auto 24px;
+    padding: 9px 12px;
+    border: 1px solid #3b78c2;
     border-radius: 7px;
-    background: linear-gradient(180deg, #3c8cf4 0%, #245edb 52%, #1941a5 100%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 2px 5px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #3c8cf3 0%, #1673e6 45%, #0860c7 46%, #2879d7 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .menu-navegação a {
@@ -42,17 +43,24 @@ body {
     border: 1px solid transparent;
     border-radius: 4px;
     color: #fff;
-    font-size: 0.95rem;
     text-decoration: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 1px rgba(0, 45, 110, 0.8);
+}
+
+.menu-navegação a::before {
+    content: "";
+}
+
+.menu-navegação a::after {
+    content: "";
 }
 
 .menu-navegação a:hover,
 .menu-navegação a:focus-visible {
-    border-color: #e6a700;
+    border-color: #ffdb70;
+    background: linear-gradient(#ffd978, #ffae32);
+    color: #153e70;
     outline: none;
-    background: linear-gradient(#fff5cf, #ffdb70);
-    color: #173c70;
     text-shadow: none;
 }
 
@@ -61,36 +69,38 @@ body {
     width: min(100%, 760px);
     min-height: 300px;
     margin: 0 auto;
-    padding: clamp(24px, 6vw, 48px);
+    padding: 0 clamp(24px, 6vw, 48px) 36px;
+    overflow: hidden;
     border: 1px solid #fff;
-    border-radius: 8px 8px 5px 5px;
-    background: var(--xp-panel);
-    box-shadow: 1px 2px 0 #7f7f7f, 0 5px 14px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f8f7f1, var(--xp-panel));
+    box-shadow: 1px 1px 0 #53677e, 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .conteudo-principal::before {
     display: block;
-    margin: calc(clamp(24px, 6vw, 48px) * -1) calc(clamp(24px, 6vw, 48px) * -1) 28px;
-    padding: 10px 16px;
-    border-radius: 7px 7px 0 0;
-    background: linear-gradient(180deg, #3c8cf4 0%, #245edb 55%, #1941a5 100%);
+    margin: 0 calc(-1 * clamp(24px, 6vw, 48px)) 28px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #064b9e;
+    background: linear-gradient(180deg, #55a5f8 0%, #2278dd 48%, #0860c7 49%, #3988e3 100%);
     color: #fff;
     content: "Sistema de Cadastro de Clientes";
     font-size: 1rem;
     font-weight: 700;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 1px 1px #164c88;
 }
 
 .conteudo-principal img {
     display: block;
     width: min(100%, 180px);
     height: auto;
-    margin: 0 auto 26px;
+    margin: 0 auto 28px;
+    image-rendering: auto;
 }
 
 h1,
 h2 {
-    color: var(--xp-blue-dark);
+    color: #174f91;
     font-size: clamp(1.25rem, 4vw, 1.8rem);
     line-height: 1.4;
     text-align: center;
@@ -102,93 +112,20 @@ p {
     text-align: center;
 }
 
-form {
-    display: grid;
-    gap: 14px;
-    width: min(100%, 460px);
-    margin: 26px auto 0;
-}
-
-input,
-button {
-    min-height: 44px;
-    padding: 10px 13px;
-    border: 1px solid var(--xp-border);
-    border-radius: 4px;
-    font: inherit;
-}
-
-input {
-    width: 100%;
-    background: #fff;
-    color: #222;
-    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.12);
-}
-
-input::placeholder {
-    color: #777;
-    opacity: 1;
-}
-
-input:focus-visible,
-button:focus-visible,
-.menu-navegação a:focus-visible {
-    outline: 2px solid var(--xp-blue-light);
-    outline-offset: 2px;
-}
-
-button {
-    margin-top: 4px;
-    border-color: #245edb;
-    background: linear-gradient(#fff, #dce8f8 45%, #b8d0f0);
-    color: #173c70;
-    cursor: pointer;
-    font-weight: 700;
-    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 0, 0, 0.18);
-}
-
-button:hover {
-    border-color: #e6a700;
-    background: linear-gradient(#fff5cf, #ffdb70);
-}
-
-.lista-clientes {
-    display: grid;
-    gap: 12px;
-    margin: 24px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.lista-clientes li {
-    padding: 14px 16px;
-    overflow-wrap: anywhere;
-    border: 1px solid var(--xp-border);
-    border-radius: 4px;
-    background: #fff;
-    color: #333;
-    line-height: 1.8;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
-}
-
-.lista-clientes strong {
-    color: var(--xp-blue-dark);
-}
-
 @media (max-width: 480px) {
     body {
         padding: 18px 12px;
     }
 
     .menu-navegação {
-        gap: 2px;
+        gap: 3px;
         margin-bottom: 16px;
-        padding: 7px 4px;
+        padding: 8px 4px;
     }
 
     .menu-navegação a {
         padding: 8px 10px;
-        font-size: 0.88rem;
+        font-size: 0.85rem;
     }
 
     .conteudo-principal {
